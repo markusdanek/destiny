@@ -22,7 +22,7 @@ if (!global.fetch) {
     require('isomorphic-fetch');
 }
 
-var HOST = 'https://www.bungie.net/platform/Destiny/'; // the is address to Bungie's API
+var HOST = 'https://www.bungie.net/platform/Destiny2/'; // the is address to Bungie's API
 var API_KEY;
 
 /** FIXME: this could potentially be broken up into smaller blocks
