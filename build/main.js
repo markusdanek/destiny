@@ -79,7 +79,7 @@ var createRequest = function createRequest(lib, method) {
  */
 var Destiny = function Destiny() {
     var apiKey = arguments.length <= 0 || arguments[0] === undefined ? undefined : arguments[0];
-    var host = arguments.length <= 1 || arguments[1] === undefined ? 'https://www.bungie.net/platform/Destiny/' : arguments[1];
+    var host = arguments.length <= 1 || arguments[1] === undefined ? 'https://www.bungie.net/platform/Destiny2/' : arguments[1];
 
     if (!_lodash2['default'].isString(apiKey) || _lodash2['default'].isEmpty(apiKey)) {
         _utils.UTILS.error('You must provide a valid api key. Expected: String, got: ' + typeof apiKey + '. Get a key at: https://www.bungie.net/developer');

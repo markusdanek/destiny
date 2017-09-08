@@ -7,15 +7,5 @@ module.exports = {
         filename: 'destiny.js',
         libraryTarget: 'var',
         library: 'Destiny'
-    },
-    plugins: [
-        // new webpack.optimize.UglifyJsPlugin({
-        //     compress: {
-        //         warnings: false
-        //     },
-        //     mangle: {
-        //         except: ['exports', 'require']
-        //     }
-        // })
-    ]
+    }
 };

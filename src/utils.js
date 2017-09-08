@@ -5,7 +5,7 @@ function DestinyError(message) {
     Error.call(this);
     Error.captureStackTrace(this, this.constructor);
 
-    this.name = this.constructor.name; // function name as error name
+    this.name = this.constructor.name;
     this.message = message;
 }
 
@@ -26,14 +26,10 @@ export const UTILS = {
             return res;
         }
     },
-    METHODS: [
-            'POST',
-            'GET'
-        ]
-        .reduce((fold, method) => {
-            fold[method] = method;
-            return fold;
-        }, {}),
+    METHODS: ['POST', 'GET'].reduce((fold, method) => {
+        fold[method] = method;
+        return fold;
+    }, {}),
     HEADERS: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'

@@ -1,24 +1,24 @@
 {
-  "name": "destiny-client",
-  "version": "0.6.0",
-  "description": "A client for Bungie's Destiny API.",
+  "name": "destiny2-client",
+  "version": "0.1.0",
+  "description": "A client for Bungie's Destiny2 API.",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git@github.com:waltfy/destiny.git"
+    "url": "git@github.com:markusdanek/destiny.git"
   },
   "keywords": [
     "Bungie",
-    "Destiny",
+    "Destiny2",
     "API",
     "client"
   ],
-  "author": "@waltfy",
+  "author": "@markusdanek",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/waltfy/destiny/issues"
+    "url": "https://github.com/markusdanek/destiny2/issues"
   },
-  "homepage": "https://github.com/waltfy/destiny",
+  "homepage": "https://github.com/markusdanek/destiny2",
   "devDependencies": {
     "babel": "^5.4.7",
     "babel-eslint": "^3.1.8",

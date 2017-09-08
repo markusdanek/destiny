@@ -5,9 +5,6 @@ SHELL := /bin/bash
 
 setup:
 	npm install
-	@echo "Git hooks..."
-	@ln -s -f ../../hooks/pre-commit .git/hooks/pre-commit
-	@chmod +x .git/hooks/pre-commit
 
 dev: setup
 	@babel src/ -d build -w
