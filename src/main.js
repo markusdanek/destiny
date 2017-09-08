@@ -9,12 +9,12 @@ if (!global.fetch) {
     require('isomorphic-fetch');
 }
 
-var HOST = 'https://www.bungie.net/platform/Destiny2/'; // the is address to Bungie's API
+var HOST = 'https://www.bungie.net/platform/Destiny2/';
 var API_KEY;
 
 let createRequest = (lib, method) => {
 
-    let template = _.template(method.url); // README: so that we can have parametised URLs
+    let template = _.template(method.url);
 
     lib[method.name] = function(params, headers) {
         return Promise.resolve(params).then(params => {
@@ -28,7 +28,7 @@ let createRequest = (lib, method) => {
             });
 
             if (missing.length > 0) {
-                UTILS.error(`Please provide [${missing.join(', ')}] to Destiny.${method.name}()`);
+                UTILS.error(`Please provide [${missing.join(', ')}] to Destiny2.${method.name}()`);
             }
 
             return params;
@@ -49,7 +49,7 @@ let createRequest = (lib, method) => {
     return lib;
 };
 
-let Destiny = (apiKey = undefined, host = 'https://www.bungie.net/platform/Destiny2/') => {
+let Destiny2 = (apiKey = undefined, host = 'https://www.bungie.net/platform/Destiny2/') => {
 
     if (!_.isString(apiKey) || _.isEmpty(apiKey)) {
         UTILS.error(`You must provide a valid api key. Expected: String, got: ${typeof apiKey}. Get a key at: https://www.bungie.net/developer`);
@@ -65,4 +65,4 @@ let Destiny = (apiKey = undefined, host = 'https://www.bungie.net/platform/Desti
     return ENDPOINTS.reduce(createRequest, {});
 };
 
-export default Destiny;
+export default Destiny2;

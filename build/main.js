@@ -22,44 +22,32 @@ if (!global.fetch) {
     require('isomorphic-fetch');
 }
 
-var HOST = 'https://www.bungie.net/platform/Destiny2/'; // the is address to Bungie's API
+var HOST = 'https://www.bungie.net/platform/Destiny2/';
 var API_KEY;
 
-/** FIXME: this could potentially be broken up into smaller blocks
- *
- * appends a spec to the lirary via iteration.
- *
- * lib - Object, intially empty.
- * item - Object, Destiny::Method.
- */
 var createRequest = function createRequest(lib, method) {
 
-    var template = _lodash2['default'].template(method.url); // README: so that we can have parametised URLs
+    var template = _lodash2['default'].template(method.url);
 
     lib[method.name] = function (params, headers) {
         return _es6Promise.Promise.resolve(params).then(function (params) {
 
-            // throw if parameters isn't an object
             if (!_lodash2['default'].isObject(params)) {
                 _utils.UTILS.error('Argument must be an Object containing: ' + method.required.join(', ') + '.');
             }
 
-            // iterate over required fields to aggregate missing ones if not present in current call
             var missing = method.required.filter(function (field) {
                 return !params.hasOwnProperty(field);
             });
 
-            // throw for any missing required fields
             if (missing.length > 0) {
-                _utils.UTILS.error('Please provide [' + missing.join(', ') + '] to Destiny.' + method.name + '()');
+                _utils.UTILS.error('Please provide [' + missing.join(', ') + '] to Destiny2.' + method.name + '()');
             }
 
             return params;
         }).then(function (params) {
             var options = _lodash2['default'].merge(method.options || {}, {
-                headers: _lodash2['default'].merge(headers || {}, {
-                    'x-api-key': API_KEY
-                }),
+                headers: _lodash2['default'].merge(headers || {}, { 'x-api-key': API_KEY }),
                 body: JSON.stringify(params)
             });
 
@@ -74,10 +62,7 @@ var createRequest = function createRequest(lib, method) {
     return lib;
 };
 
-/**
- * preparing library for export
- */
-var Destiny = function Destiny() {
+var Destiny2 = function Destiny2() {
     var apiKey = arguments.length <= 0 || arguments[0] === undefined ? undefined : arguments[0];
     var host = arguments.length <= 1 || arguments[1] === undefined ? 'https://www.bungie.net/platform/Destiny2/' : arguments[1];
 
@@ -95,5 +80,5 @@ var Destiny = function Destiny() {
     return _endpoints2['default'].reduce(createRequest, {});
 };
 
-exports['default'] = Destiny;
+exports['default'] = Destiny2;
 module.exports = exports['default'];

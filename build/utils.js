@@ -13,7 +13,7 @@ function DestinyError(message) {
     Error.call(this);
     Error.captureStackTrace(this, this.constructor);
 
-    this.name = this.constructor.name; // function name as error name
+    this.name = this.constructor.name;
     this.message = message;
 }
 
